@@ -1,0 +1,72 @@
+body {
+  margin: 24px; }
+
+.table-hover thead th {
+  text-align: center; }
+
+.table-hover tbody tr {
+  cursor: pointer; }
+  .table-hover tbody tr td:not(:first-child) {
+    text-align: center; }
+
+.pointer {
+  cursor: pointer; }
+
+.jumbotron {
+  padding-left: 2em;
+  padding-right: 2em;
+  border-radius: 8px;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.5); }
+
+#map {
+  width: 100%;
+  height: 500px; }
+
+.training {
+  padding: 1em;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.9);
+  border-radius: 4px; }
+
+.param {
+  position: relative; }
+  .param .value {
+    position: absolute;
+    top: 0;
+    left: 60%; }
+
+.switchable-wrapper {
+  height: 32px; }
+
+@media (min-width: 972px) {
+  .adapt-h24 {
+    height: 24px; } }
+
+.center {
+  text-align: center; }
+
+.b-margin-0_5 {
+  margin-bottom: 0.5em; }
+
+.t-margin-0_5 {
+  margin-top: 0.5em; }
+
+.b-margin-1 {
+  margin-bottom: 1em; }
+
+.t-margin-1 {
+  margin-top: 1em; }
+
+.b-margin-1_5 {
+  margin-bottom: 1.5em; }
+
+.t-margin-1_5 {
+  margin-top: 1.5em; }
+
+.b-margin-2 {
+  margin-bottom: 2em; }
+
+.t-margin-2 {
+  margin-top: 2em; }
+
+.w100 {
+  width: 100% !important; }

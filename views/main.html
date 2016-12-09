@@ -1,0 +1,80 @@
+<div ng-controller="mainController">
+    <script>
+    </script>
+    <div class="jumbotron" ng-if="model.id != 0">
+        <h1>На тренировке!</h1>
+        <p>{{model.name}} ({{model.type}})</p>
+        <p><a class="btn btn-success btn-lg" ng-href="#/training/{{model.id}}" role="button">Открыть</a></p>
+    </div>
+    <h2><small>Архив тренировок:</small></h2>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="">Дата начала:</label>
+                <div class="input-group date" id="dateStart" data-provide="datepicker">
+
+                    <input type="text" class="form-control" ng-model="table.begin">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="">Дата окончания:</label>
+                <div class="input-group date" id="dateEnd" data-provide="datepicker">
+
+                    <input type="text" class="form-control" ng-model="table.end">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-th"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="adapt-h24"></div>
+            <button type="button" class="btn btn-primary w100">Получить</button>
+        </div>
+    </div>
+
+    <div class="table-responsive" style="margin-top:1em">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Наименование</th>
+                    <th>Вид</th>
+                    <th>Дата тренировки</th>
+                    <th>Дистанция</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr ng-repeat="elem in archive" ng-click="pathTraining(elem.id)">
+                    <td>{{elem.name}}</td>
+                    <td>{{elem.type}}</td>
+                    <td>{{date(elem.date)}}</td>
+                    <td>{{elem.dist}} км</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+        <div style="text-align:right" ng-if="countArchive >1">
+            <ul class="pagination">
+                <li ng-class="{disabled:tableModel.count==1}" ng-click="tableModel.count==1 ? true : getArchive(tableModel.count-1)">
+                    <a ng-class="{pointer:tableModel.count!=1}">
+                        <<</a>
+                </li>
+                <li ng-repeat="elem in countArchiveArray" ng-class="{'active':elem == tableModel.count}" ng-click="getArchive(elem)"><a class="pointer">{{elem}} <span class="sr-only">(current)</span></a></li>
+                <li ng-class="{disabled:tableModel.count==countArchiveArray.length}" ng-click="tableModel.count==countArchiveArray.length ? true : getArchive(tableModel.count+1)">
+                    <a ng-class="{pointer:tableModel.count!=countArchiveArray.length}">>></a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+</div>

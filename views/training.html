@@ -1,0 +1,50 @@
+<div ng-controller="trainingController">
+    <div class="center">
+        <a href="#/main" class="btn btn-success b-margin-1">На главную</a>
+    </div>
+    <h1 class="center"><small>{{trainingModel.name}} ({{trainingModel.type}})</small></h1>
+
+    <div class="training">
+        <div class="row">
+            <div class="col-md-8">
+                <input type="checkbox" id="autocenter" checked data-label="Автоцентрирование" ng-model="centerMap" ng-if="trainingModel.active == '1'">
+                <div id="map"></div>
+            </div>
+            <div class="col-md-4">
+
+                <div class="alert " ng-class="{'alert-success': trainingModel.active == '0', 'alert-info': trainingModel.active == '1'}">
+                    <h4 class="b-margin-1" ng-if="trainingModel.active == '0'">Тренировка завершена</h4>
+                    <div class="param b-margin-1">
+                        <div class="info">Время начала:</div>
+                        <div class="value">{{time(trainingModel.date)}}</div>
+                    </div>
+                    <div class="param b-margin-1" ng-if="trainingModel.dateEnd != null">
+                        <div class="info">Время окончания:</div>
+                        <div class="value">{{time(trainingModel.dateEnd)}}</div>
+                    </div>
+                    <div class="param b-margin-1">
+                        <div class="info">Длительность:</div>
+                        <div class="value">{{trainingModel.time}}</div>
+                    </div>
+                    <div class="param b-margin-1">
+                        <div class="info">Пройдено:</div>
+                        <div class="value">{{trainingModel.dist}} км</div>
+                    </div>
+                    <div class="param b-margin-1" ng-if="trainingModel.active == '1'">
+                        <div class="info">Скорость:</div>
+                        <div class="value">{{trainingModel.speed}} км/ч</div>
+                    </div>
+                    <div class="param b-margin-1">
+                        <div class="info">Ср. скорость:</div>
+                        <div class="value">{{trainingModel.avgSpeed}} км/ч</div>
+                    </div>
+                    <div class="param">
+                        <div class="info">Ср. темп:</div>
+                        <div class="value">{{trainingModel.avgPace}} мин/км</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
