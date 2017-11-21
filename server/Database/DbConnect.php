@@ -1,9 +1,8 @@
 <?php
-$host = "127.0.0.1:3306";
 $host = "localhost";
-$base = "training";
+$base = "fam_training";
 $user = "root";
-$password = "";
+$password = "kolbaska";
 
 //$host = "";
 //$base = "";
